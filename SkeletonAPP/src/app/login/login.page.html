@@ -1,0 +1,29 @@
+<ion-content [fullscreen]="true"  > 
+  <div class="login-container">
+    <ion-card class="login-card">
+      <ion-card-header>
+        <ion-card-title class="login-title">Bienvenido/a</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item class="input-item">
+          <ion-label position="floating" color="primary">Correo electronico</ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+
+        <ion-item class="input-item">
+          <ion-label position="floating" color="primary">Contraseña</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" class="login-button" >Iniciar Sesión</ion-button>
+        
+        <ion-button expand="block" fill="clear" color="light" class="register-button">Registrarse</ion-button>
+
+        <ion-text class="forgot-password" color="medium">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

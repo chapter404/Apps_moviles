@@ -12,7 +12,10 @@ import { LoginPage } from './login.page';
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule.forRoot({
+      scrollPadding: false,
+      scrollAssist: false
+    }),
     LoginPageRoutingModule
   ],
   declarations: [LoginPage]

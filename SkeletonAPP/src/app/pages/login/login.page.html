@@ -1,0 +1,63 @@
+<!---
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Iniciar Sesión
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"  > 
+  <div class="login-container">
+    <ion-card class="login-card">
+      <ion-item>
+        <ion-input label="Usuario" placeholder="Escriba su usuario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" label="Contraseña" placeholder="Escriba su contraseña">
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+      </ion-item>
+      <ion-button>
+        Ingresar
+      </ion-button>
+    </ion-card>
+  </div>
+</ion-content>
+-->
+
+
+
+<ion-content>
+  <div class="login-wrapper">
+    <div class="header">
+      <h1>Iniciar Sesión</h1>
+    </div>
+    
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" placeholder="Escriba su email aquí"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+      
+    </ion-item>
+    
+    <div class="contraseña-perdida">
+      <ion-text color="medium">Olvidó su contraseña?</ion-text>
+    </div>
+
+    <ion-button expand="block" class="boton-ingresar">
+      Ingresar
+    </ion-button>
+
+    <div class="texto-registrarse">
+      <ion-text color="medium">No tienes una cuenta?</ion-text>
+      <ion-text color="primary">Crear una cuenta</ion-text>
+    </div>
+  </div>
+</ion-content>

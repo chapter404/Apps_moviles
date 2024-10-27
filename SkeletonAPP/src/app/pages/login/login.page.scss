@@ -1,0 +1,58 @@
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: linear-gradient(to bottom right, #831843, #311d6e);
+    padding: 20px;
+  }
+  
+  .header h1 {
+    color: white;
+    font-size: 36px;
+    margin: 0;
+  }
+  
+  .header h2 {
+    color: white;
+    font-size: 28px;
+    margin: 0;
+  }
+  
+  .input-item {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 20px;
+  }
+  
+  .contraseña-perdida {
+    width: 100%;
+    max-width: 350px;
+    text-align: right;
+    margin-top: 10px;
+  }
+  
+  .contraseña-perdida ion-text {
+    font-size: 14px;
+  }
+  
+  .boton-ingresar {
+    background: linear-gradient(to right, #e52d27, #b31217);
+    margin-top: 30px;
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .texto-registrarse {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .texto-registrarse ion-text:first-child {
+    margin-right: 5px;
+  }
+  

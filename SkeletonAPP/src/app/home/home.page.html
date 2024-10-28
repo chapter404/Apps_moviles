@@ -1,20 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <div>
+    <h2>Bienvenido, {{ usuario }}</h2>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre" #nombreInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="apellido" #apellidoInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nivel de Educación</ion-label>
+      <ion-input [(ngModel)]="nivelEducacion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Fecha de Nacimiento</ion-label>
+      <ion-input [(ngModel)]="fechaNacimiento" type="date"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="secondary" (click)="limpiar()">Limpiar</ion-button>
+    <ion-button expand="block" color="primary" (click)="mostrar()">Mostrar</ion-button>
   </div>
 </ion-content>

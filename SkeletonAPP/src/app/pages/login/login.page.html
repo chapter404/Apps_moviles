@@ -1,36 +1,31 @@
 <ion-content>
-  <div class="login-container">
-    <div class="header">
-      <h1>Iniciar Sesión</h1>
+    <div class="login-section ion-padding">
+      <div class="login-header ion-padding">
+        <h1>Iniciar Sesión</h1>
+      </div>
+      <div class="login-form ion-padding">
+        <ion-item lines="none" class="input-item">
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input type="text" [(ngModel)]="usuario" minlength="3" maxlength="8" pattern="^[a-zA-Z0-9]+$"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="input-item">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="password" maxlength="4" inputmode="numeric" pattern="^[0-9]{4}$"></ion-input>
+        </ion-item>
+
+        <div class="recuperar-contraseña">
+          <ion-text color="medium">¿Olvidó su contraseña?</ion-text>
+        </div>
+
+        <ion-button expand="block" class="boton-ingresar" color="primary" (click)="ingresar()">
+          Ingresar
+        </ion-button>
+
+        <div class="texto-registrarse">
+          <ion-text color="medium">¿No tienes cuenta?</ion-text>
+          <ion-text color="primary">Crear una cuenta</ion-text>
+        </div>
+      </div>
     </div>
-    
-    <ion-card class="login-card">
-      <ion-item lines="none" class="input-item">
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" placeholder="Escriba su email aquí"></ion-input>
-      </ion-item>
-
-      <ion-item lines="none" class="input-item">
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password">
-          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-        </ion-input>
-        
-      </ion-item>
-      
-      <div class="contraseña-perdida">
-        <ion-text color="medium">Olvidó su contraseña?</ion-text>
-      </div>
-
-      <ion-button expand="block" class="boton-ingresar" color="primary">
-        Ingresar
-      </ion-button>
-
-      <div class="texto-registrarse">
-        <ion-text color="medium">No tienes una cuenta?</ion-text>
-        <ion-text color="primary">Crear una cuenta</ion-text>
-      </div>
-    </ion-card>
- 
-  </div>
 </ion-content>

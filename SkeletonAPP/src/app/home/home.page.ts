@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AnimationController } from '@ionic/angular';
+import { AnimationController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,11 @@ export class HomePage {
   nivelEducacion!: string;
   fechaNacimiento!: string;
 
-  constructor(private route: ActivatedRoute, private animationCtrl: AnimationController) {
+  constructor(
+    private route: ActivatedRoute,
+    private animationCtrl: AnimationController,
+    private alertController: AlertController
+  ) {
     this.route.queryParams.subscribe(params => {
       this.usuario = params['usuario'];
     });
@@ -30,9 +34,16 @@ export class HomePage {
     this.fechaNacimiento = '';
   }
 
-  mostrar() {
-    const mensaje = `Nombre: ${this.nombre}, Apellido: ${this.apellido}`;
-    alert(mensaje);
+  async mostrar() {
+    const mensaje = `Su nombre es: ${this.nombre} ${this.apellido}`;
+    
+    const alert = await this.alertController.create({
+      header: 'Información',
+      message: mensaje,
+      buttons: ['OK']
+    });
+    
+    await alert.present();
   }
 
   private animateInput(inputId: string) {

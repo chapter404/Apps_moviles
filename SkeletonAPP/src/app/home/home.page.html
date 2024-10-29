@@ -1,23 +1,42 @@
 <ion-content>
-  <div>
-    <h2>Bienvenido, {{ usuario }}</h2>
-    <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
+  <div class="container">
+    <h1 class="title">Bienvenido!</h1>
+    <p class="username">Usuario: {{ usuario }}</p>
+    
+    <h2>Información Adicional</h2>
+
+    <ion-item class="input-item">
+      <ion-label position="stacked">Nombre</ion-label>
       <ion-input [(ngModel)]="nombre" #nombreInput></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label position="floating">Apellido</ion-label>
+
+    <ion-item class="input-item">
+      <ion-label position="stacked">Apellido</ion-label>
       <ion-input [(ngModel)]="apellido" #apellidoInput></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label position="floating">Nivel de Educación</ion-label>
-      <ion-input [(ngModel)]="nivelEducacion"></ion-input>
+
+    <ion-item class="input-item">
+      <ion-label position="stacked">Nivel Educación</ion-label>
+      <ion-select [(ngModel)]="nivelEducacion">
+        <ion-select-option value="Basica">Basica</ion-select-option>
+        <ion-select-option value="Media">Media</ion-select-option>
+        <ion-select-option value="Universitaria">Universitaria</ion-select-option>
+      </ion-select>
     </ion-item>
+
     <ion-item>
       <ion-label position="floating">Fecha de Nacimiento</ion-label>
       <ion-input [(ngModel)]="fechaNacimiento" type="date"></ion-input>
     </ion-item>
-    <ion-button expand="block" color="secondary" (click)="limpiar()">Limpiar</ion-button>
-    <ion-button expand="block" color="primary" (click)="mostrar()">Mostrar</ion-button>
+    
+
+    <div class="button-group">
+      <ion-button expand="block" color="secondary" (click)="limpiar()">Limpiar</ion-button>
+      <ion-button expand="block" color="primary" (click)="mostrar()">Mostrar</ion-button>
+    </div>
   </div>
+
+  <footer class="footer">
+    App desarrollada por Gunther
+  </footer>
 </ion-content>

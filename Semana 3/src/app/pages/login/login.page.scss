@@ -1,0 +1,17 @@
+ion-content {
+  --background: transparent;
+  background: linear-gradient(to bottom right, #831843, #311d6e);
+  overflow-y: hidden;
+}
+
+.login-section {
+  height: 70vh;
+  width: 90%;
+  position: fixed;
+  margin: auto;
+  bottom: 5vh;
+  left: 0;
+  right: 0;
+  border-radius: 5%;
+  background-color: white;
+}

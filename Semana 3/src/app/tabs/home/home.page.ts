@@ -13,6 +13,7 @@ export class HomePage {
   apellido!: string;
   nivelEducacion!: string;
   fechaNacimiento!: string;
+  selectedDate: Date | null = null;
 
   constructor(
     private route: ActivatedRoute,

@@ -8,23 +8,34 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  usuario!: string;
-  password!: string;
+  email: string = '';
+  password: string = '';
 
   constructor(private router: Router, private alertController: AlertController) {}
 
-  async ingresar() {
-    const usuarioValido = /^[a-zA-Z0-9]{3,8}$/.test(this.usuario);
-    const passwordValido = /^[0-9]{4}$/.test(this.password);
+  isValidEmail(email: string): boolean {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  }
 
-    if (usuarioValido && passwordValido) {
+  isValidPassword(password: string): boolean {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
+    return passwordRegex.test(password);
+  }
+
+  isFormValid(): boolean {
+    return this.isValidEmail(this.email) && this.isValidPassword(this.password);
+  }
+
+  async login() {
+    if (this.isFormValid()) {
       const navigationExtras: NavigationExtras = {
         queryParams: {
-          usuario: this.usuario,
+          email: this.email,
           password: this.password 
         }
       };
-      this.router.navigate(['/home'], navigationExtras);
+      this.router.navigate(['/tabs'], navigationExtras);
     } else {
       const alert = await this.alertController.create({
         header: 'Error',

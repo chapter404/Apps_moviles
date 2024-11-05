@@ -45,4 +45,8 @@ export class LoginPage {
       await alert.present();
     }
   }
+
+  redirectToSignUp() {
+    this.router.navigate(['/sign-up']);
+  }
 }

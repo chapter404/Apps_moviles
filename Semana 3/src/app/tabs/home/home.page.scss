@@ -1,0 +1,44 @@
+ion-content {
+  --background: #1C1E33;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+h2.section-title {
+  color: #F1395B;
+  margin-bottom: 20px;
+}
+
+.book-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.book-card {
+  background: #3e3d4d;
+  border-radius: 5px;
+  margin: 10px;
+  width: 150px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.book-cover {
+  width: 100%;
+  height: auto;
+}
+
+.book-title {
+  color: white;
+}
+
+.book-author {
+  color: #F1395B;
+}

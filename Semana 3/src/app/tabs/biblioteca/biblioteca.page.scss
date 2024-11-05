@@ -1,0 +1,69 @@
+ion-content {
+  --background: #1C1E33;
+}
+
+.biblioteca-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+
+.biblioteca-header {
+  color: white;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 30%;
+}
+
+.biblioteca-content {
+  height: 70%;
+}
+
+ion-card {
+  --background: #3e3d4d;
+}
+
+.library-grid {
+    padding: 16px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    color: #F1395B;
+    margin: 16px 0 8px;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .book-card {
+    --background: #3e3d4d;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    color: #FFFFFF;
+  }
+  
+  ion-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #F1395B;
+  }
+  
+  ion-card-subtitle {
+    font-size: 1rem;
+    color: #FFFFFF;
+    opacity: 0.8;
+  }
+  
+  ion-card-content {
+    color: white;
+  }
+  

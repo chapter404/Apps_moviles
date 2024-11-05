@@ -1,51 +1,31 @@
-<ion-content>
-  <div class="container">
-    <h1 class="title">Bienvenido!</h1>
-    <p class="username">Usuario: {{ usuario }}</p>
-    
-    <h2>Información Adicional</h2>
+<ion-content fullscreen="true">
+  <div class="home-container">
 
-    <ion-item class="input-item">
-      <ion-label position="stacked">Nombre</ion-label>
-      <ion-input [(ngModel)]="nombre" #nombreInput></ion-input>
-    </ion-item>
+    <section class="slides-section">
+      <h2 class="section-title">Libros Agregados Recientemente</h2>
+      <div class="book-cards">
+        <ion-card *ngFor="let book of recentBooks" class="book-card">
+          <img [src]="book.coverImage" alt="Book Cover" class="book-cover" />
+          <ion-card-header>
+            <ion-card-title class="book-title">{{ book.title }}</ion-card-title>
+            <ion-card-subtitle class="book-author">{{ book.author }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </div>
+    </section>
 
-    <ion-item class="input-item">
-      <ion-label position="stacked">Apellido</ion-label>
-      <ion-input [(ngModel)]="apellido" #apellidoInput></ion-input>
-    </ion-item>
+    <section class="slides-section">
+      <h2 class="section-title">Libros que Podrían Gustarte</h2>
+      <div class="book-cards">
+        <ion-card *ngFor="let book of recommendedBooks" class="book-card">
+          <img [src]="book.coverImage" alt="Book Cover" class="book-cover" />
+          <ion-card-header>
+            <ion-card-title class="book-title">{{ book.title }}</ion-card-title>
+            <ion-card-subtitle class="book-author">{{ book.author }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </div>
+    </section>
 
-    <ion-item class="input-item">
-      <ion-label position="stacked">Nivel Educación</ion-label>
-      <ion-select [(ngModel)]="nivelEducacion">
-        <ion-select-option value="Basica">Basica</ion-select-option>
-        <ion-select-option value="Media">Media</ion-select-option>
-        <ion-select-option value="Universitaria">Universitaria</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Fecha Nacimiento</ion-label>
-      <ion-item>  
-
-         <mat-form-field>
-          <mat-label>Fecha Nacimiento</mat-label>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">  
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker> 
-        </mat-form-field>
-        
-      </ion-item>
-    </ion-item>
-    
-
-    <div class="button-group">
-      <ion-button expand="block" color="secondary" (click)="limpiar()">Limpiar</ion-button>
-      <ion-button expand="block" color="primary" (click)="mostrar()">Mostrar</ion-button>
-    </div>
   </div>
-
-  <footer class="footer">
-    App desarrollada por Gunther
-  </footer>
 </ion-content>

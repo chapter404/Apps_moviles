@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AnimationController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,58 +6,15 @@ import { AnimationController, AlertController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  usuario!: string;
-  nombre!: string;
-  apellido!: string;
-  nivelEducacion!: string;
-  fechaNacimiento!: string;
-  selectedDate: Date | null = null;
+  recentBooks = [
+    { title: 'Libro 1', author: 'Autor 1', coverImage: 'assets/covers/book1.jpg' },
+    { title: 'Libro 2', author: 'Autor 2', coverImage: 'assets/covers/book2.jpg' },
+  ];
 
-  constructor(
-    private route: ActivatedRoute,
-    private animationCtrl: AnimationController,
-    private alertController: AlertController
-  ) {
-    this.route.queryParams.subscribe(params => {
-      this.usuario = params['usuario'];
-    });
-  }
+  recommendedBooks = [
+    { title: 'Libro A', author: 'Autor A', coverImage: 'assets/covers/book3.jpg' },
+    { title: 'Libro B', author: 'Autor B', coverImage: 'assets/covers/book4.jpg' },
+  ];
 
-  limpiar() {
-    this.animateInput('nombreInput');
-    this.animateInput('apellidoInput');
-
-    this.nombre = '';
-    this.apellido = '';
-    this.nivelEducacion = '';
-    this.fechaNacimiento = '';
-  }
-
-  async mostrar() {
-    const mensaje = `Su nombre es: ${this.nombre} ${this.apellido}`;
-    
-    const alert = await this.alertController.create({
-      header: 'Información',
-      message: mensaje,
-      buttons: ['OK']
-    });
-    
-    await alert.present();
-  }
-
-  private animateInput(inputId: string) {
-    const inputElement = document.getElementById(inputId);
-    if (inputElement) {
-      const animation = this.animationCtrl.create()
-        .addElement(inputElement)
-        .duration(1000)
-        .iterations(1)
-        .keyframes([
-          { offset: 0, transform: 'translateX(0)' },
-          { offset: 0.5, transform: 'translateX(20px)' },
-          { offset: 1, transform: 'translateX(0)' },
-        ]);
-      animation.play();
-    }
-  }
+  constructor() {}
 }

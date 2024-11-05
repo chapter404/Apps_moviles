@@ -1,13 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>biblioteca</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">biblioteca</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="biblioteca-container">
+    <div class="biblioteca-header">
+      <h1 class="library-title">Mi Biblioteca</h1>
+    </div>
+    <div class="biblioteca-content">
+      <ion-grid class="library-grid">
+        <ion-row>
+          <ion-col size="12">
+            <ion-card class="book-card" routerLink="/tabs/biblioteca/libros-leidos">
+              <ion-card-header>
+                <ion-card-title>Libros Leídos</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Ver todos los libros que has leído.</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-card class="book-card" routerLink="/tabs/biblioteca/libros-por-leer">
+              <ion-card-header>
+                <ion-card-title>Libros por Leer</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Ver todos los libros que planeas leer.</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
 </ion-content>

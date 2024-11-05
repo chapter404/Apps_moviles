@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { trigger, style, animate, transition } from '@angular/animations';
 import { Router, NavigationExtras } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
@@ -6,6 +7,14 @@ import { AlertController } from '@ionic/angular';
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
+  animations: [
+    trigger('fadeInUp', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(20px)' }),
+        animate('600ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+      ])
+    ])
+  ]
 })
 export class LoginPage {
   email: string = '';

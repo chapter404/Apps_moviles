@@ -1,9 +1,22 @@
 import { Component } from '@angular/core';
+import { trigger, style, animate, transition, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  animations: [
+    trigger('staggeredFadeIn', [
+      transition(':enter', [
+        query('.book-card', [
+          style({ opacity: 0, transform: 'translateY(10px)' }),
+          stagger(100, [
+            animate('400ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ])
+      ])
+    ])
+  ]
 })
 export class HomePage {
   recentBooks = [

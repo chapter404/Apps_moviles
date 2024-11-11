@@ -1,0 +1,29 @@
+<ion-content fullscreen="true" @staggeredFadeIn>
+  <div class="home-container">
+    <section class="slides-section">
+      <h2 class="section-title">Libros Agregados Recientemente</h2>
+      <div class="book-cards">
+        <ion-card *ngFor="let book of recentBooks" class="book-card">
+          <img [src]="book.coverImage" alt="Book Cover" class="book-cover" />
+          <ion-card-header>
+            <ion-card-title class="book-title">{{ book.title }}</ion-card-title>
+            <ion-card-subtitle class="book-author">{{ book.author }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </div>
+    </section>
+
+    <section class="slides-section">
+      <h2 class="section-title">Libros que Podrían Gustarte</h2>
+      <div class="book-cards">
+        <ion-card *ngFor="let book of recommendedBooks" class="book-card">
+          <img [src]="book.coverImage" alt="Book Cover" class="book-cover" />
+          <ion-card-header>
+            <ion-card-title class="book-title">{{ book.title }}</ion-card-title>
+            <ion-card-subtitle class="book-author">{{ book.author }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </div>
+    </section>
+  </div>
+</ion-content>

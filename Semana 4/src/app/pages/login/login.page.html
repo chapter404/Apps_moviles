@@ -1,0 +1,50 @@
+<ion-content fullscreen="true" scroll="false">
+  <div class="login-container" @fadeInUp>
+    <div class="login-header" @fadeInUp>
+      <h1 class="login-title">Iniciar Sesión</h1>
+      <div class="logo-container">
+        <img src="assets/images/logo_3.png" alt="Logo" class="logo-image" />
+      </div>
+    </div>
+
+    <div class="login-form" @fadeInUp>
+      <ion-item class="input-item">
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input
+          [(ngModel)]="email"
+          type="email"
+          required
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          placeholder="ejemplo@correo.com">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          [(ngModel)]="password"
+          type="password"
+          required
+          minlength="8"
+          maxlength="20"
+          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$"
+          placeholder="Escriba su contraseña aquí">
+        </ion-input>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        (click)="login()"
+        class="login-button"
+        [disabled]="!isFormValid()">
+        Ingresar
+      </ion-button>
+
+      <ion-button expand="block" (click)="redirectToSignUp()" fill="clear" color="light" class="register-button">Registrarse</ion-button>
+
+      <ion-text class="forgot-password" color="medium">
+        <a href="#">Olvidaste tu contraseña?</a>
+      </ion-text>
+    </div>
+  </div>
+</ion-content>

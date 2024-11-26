@@ -1,0 +1,83 @@
+<ion-content fullscreen="true">
+  <div class="signup-container">
+
+    <div class="signup-header">
+      <h1 class="signup-title">Bienvenido!</h1>
+    </div>
+
+    <div class="signup-form">
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input 
+          [(ngModel)]="email" 
+          type="email" 
+          required 
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+          placeholder="ejemplo@correo.com">
+        </ion-input>
+        <ion-text color="danger" *ngIf="!isValidEmail(email) && email">
+          Por favor, ingrese un correo electrónico válido.
+        </ion-text>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input 
+          [(ngModel)]="password" 
+          type="password" 
+          required 
+          minlength="8" 
+          maxlength="20" 
+          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$" 
+          placeholder="Escriba su contraseña aquí">
+        </ion-input>
+        <ion-text color="danger" *ngIf="!isValidPassword(password) && password">
+          La contraseña debe tener entre 8 y 20 caracteres, y contener al menos un número.
+        </ion-text>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input [(ngModel)]="nombre" required></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-label position="stacked">Apellido</ion-label>
+        <ion-input [(ngModel)]="apellido" required></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-label position="stacked">Nivel Educación</ion-label>
+        <ion-select [(ngModel)]="nivelEducacion" required>
+          <ion-select-option value="Basica">Basica</ion-select-option>
+          <ion-select-option value="Media">Media</ion-select-option>
+          <ion-select-option value="Universitaria">Universitaria</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-label position="stacked">Fecha Nacimiento</ion-label>
+        <mat-form-field>
+          <mat-label>Fecha Nacimiento</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </ion-item>        
+
+      <ion-button 
+        expand="block" 
+        color="primary" 
+        (click)="register()" 
+        [disabled]="!isFormValid()">
+        Registrarse
+      </ion-button>
+
+      <ion-text color="medium" class="register-button">
+        ¿Ya tienes una cuenta? <a routerLink="/login">Iniciar sesión</a>
+      </ion-text>
+
+    </div>
+  </div>
+</ion-content>

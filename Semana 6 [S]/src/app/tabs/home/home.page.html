@@ -1,0 +1,67 @@
+<ion-content fullscreen="true" @staggeredFadeIn>
+  <div class="home-container">
+
+    <ion-searchbar 
+      [(ngModel)]="titulo" 
+      show-clear-button="always" 
+      placeholder="Buscar un libro" 
+      (ionInput)="onSearchInput()">
+    </ion-searchbar>
+    
+    <ion-list *ngIf="libros && libros.length > 0" class="search-results-list">
+      <ion-item *ngFor="let book of libros" (click)="selectBook(book)">
+        <ion-thumbnail slot="start">
+          <img [src]="book.coverImage" alt="Book Cover">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ book.title }}</h2>
+          <p>{{ book.author }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    
+    <ion-list *ngIf="libros && libros.length === 0">
+      <ion-item>
+        <ion-label>
+          <h2>No se encontraron libros</h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button *ngIf="selectedBook" (click)="addToMisList()">Agregar a Mis Listas</ion-button>
+
+    <section class="slides-section">
+      <h2 class="section-title">Libros con Slide Element</h2>
+      <div class="book-cards">
+        <swiper-container
+          (slidechange)="swiperSlideChanged($event)"
+          [loop]="true"
+          [pagination]="true">
+          <swiper-slide *ngFor="let book of recentBooks">
+            <div class="book-card">
+              <img [src]="book.coverImage" alt="Book Cover" class="book-cover" />
+              <ion-card-header>
+                <ion-card-title class="book-title">{{ book.title }}</ion-card-title>
+                <ion-card-subtitle class="book-author">{{ book.author }}</ion-card-subtitle>
+              </ion-card-header>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </section>
+
+    <section class="slides-section">
+      <h2 class="section-title">Libros Guardados</h2>
+      <div class="book-cards">
+        <ion-card *ngFor="let book of recommendedBooks" class="book-card">
+          <img [src]="book.coverImage" alt="Book Cover" class="book-cover" />
+          <ion-card-header>
+            <ion-card-title class="book-title">{{ book.title }}</ion-card-title>
+            <ion-card-subtitle class="book-author">{{ book.author }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </div>
+    </section>    
+  </div>
+
+</ion-content>

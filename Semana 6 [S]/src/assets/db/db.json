@@ -1,0 +1,67 @@
+{
+  "database": "sqlite-json.db",
+  "version": 1,
+  "encrypted": false,
+  "mode": "full",
+  "tables": [
+    {
+      "name": "mis_listas",
+      "schema": [
+        {
+          "column": "id",
+          "value": "INTEGER PRIMARY KEY AUTOINCREMENT"
+        },
+        {
+          "column": "title",
+          "value": "TEXT NOT NULL"
+        },
+        {
+          "column": "author",
+          "value": "TEXT"
+        },
+        {
+          "column": "coverImage",
+          "value": "TEXT"
+        }
+      ]
+    },
+    {
+      "name": "books",
+      "schema": [
+        {
+          "column": "id",
+          "value": "INTEGER PRIMARY KEY AUTOINCREMENT"
+        },
+        {
+          "column": "title",
+          "value": "TEXT NOT NULL"
+        },
+        {
+          "column": "author",
+          "value": "TEXT"
+        },
+        {
+          "column": "coverImage",
+          "value": "TEXT"
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "schema": [
+        {
+          "column": "id",
+          "value": "INTEGER PRIMARY KEY AUTOINCREMENT"
+        },
+        {
+          "column": "email",
+          "value": "TEXT NOT NULL UNIQUE"
+        },
+        {
+          "column": "password",
+          "value": "TEXT NOT NULL"
+        }
+      ]
+    }
+  ]
+}

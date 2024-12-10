@@ -27,6 +27,13 @@ ion-content {
   align-items: center;
 }
 
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 ion-input {
   --background: transparent;
   --color: white;
@@ -91,5 +98,3 @@ ion-label {
   max-width: 300px;
   height: auto;
 }
-
-

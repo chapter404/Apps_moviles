@@ -1,25 +1,26 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>Mis Listas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="misListas.length > 0">
-    <ion-item *ngFor="let book of misListas">
-      <ion-thumbnail slot="start">
-        <img [src]="book.coverImage" alt="Book Cover">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ book.title }}</h2>
-        <p>{{ book.author }}</p>
-      </ion-label>
-    </ion-item>
+  <ion-list>
+    <ion-item-group *ngFor="let lista of listas">
+      <ion-item-divider>
+        <ion-label>{{ lista.nombre }}</ion-label>
+        <ion-note slot="end">{{ lista.cantidad_libros }} libros</ion-note>
+      </ion-item-divider>
+      
+      <ion-item *ngFor="let book of lista.books">
+        <ion-thumbnail slot="start">
+          <img [src]="book.coverImage" (error)="book.coverImage = 'assets/covers/default.jpg'">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ book.title }}</h2>
+          <p>{{ book.author }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-item-group>
   </ion-list>
-
-  <ion-item *ngIf="misListas.length === 0">
-    <ion-label>
-      <h2>No hay libros en Mis Listas</h2>
-    </ion-label>
-  </ion-item>
 </ion-content>

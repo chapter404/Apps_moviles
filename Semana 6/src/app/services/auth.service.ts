@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SqliteService } from './sqlite.service'; 
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -8,12 +9,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
   private isAuthenticatedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private sqliteService: SqliteService) {
+  constructor(
+    private sqliteService: SqliteService,
+    private router: Router
+  ) {
     this.checkAuth();
   }
 
   private async checkAuth() {
-    const dbName = await this.sqliteService.getDbName();
     const email = await this.sqliteService.getPreference('userEmail');
     const password = await this.sqliteService.getPreference('userPassword');
 
@@ -22,13 +25,18 @@ export class AuthService {
       if (user.length > 0 && user[0].password === password) {
         this.isAuthenticatedSubject.next(true);
       } else {
-        this.isAuthenticatedSubject.next(false);
+        await this.clearAuth();
       }
     } else {
       this.isAuthenticatedSubject.next(false);
     }
   }
 
+  private async clearAuth() {
+    await this.sqliteService.removePreference('userEmail');
+    await this.sqliteService.removePreference('userPassword');
+    this.isAuthenticatedSubject.next(false);
+  }
 
   async login(email: string, password: string) {
     const user = await this.sqliteService.query('users', 'email', email);
@@ -41,14 +49,12 @@ export class AuthService {
     return false;
   }
 
-  logout() {
-    this.sqliteService.removePreference('userEmail');
-    this.sqliteService.removePreference('userPassword');
-    this.isAuthenticatedSubject.next(false);
+  async logout() {
+    await this.clearAuth();
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 
   get isAuthenticated$(): Observable<boolean> {
     return this.isAuthenticatedSubject.asObservable();
   }
-  
 }

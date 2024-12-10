@@ -2,12 +2,20 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
-import { SqliteService } from '../../services/sqlite.service';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
+  animations: [
+    trigger('fadeInUp', [
+      transition(':enter', [
+        style({ transform: 'translateY(100%)', opacity: 0 }),
+        animate('0.5s ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class LoginPage {
   email: string = '';
@@ -15,7 +23,6 @@ export class LoginPage {
   errorMessage: string = '';
 
   constructor(
-    private sqliteService: SqliteService,
     private router: Router,
     private alertController: AlertController,
     private authService: AuthService
@@ -50,7 +57,6 @@ export class LoginPage {
       }
     }
   }
-
 
   redirectToSignUp() {
     this.router.navigate(['/sign-up']);

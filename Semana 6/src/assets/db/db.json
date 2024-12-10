@@ -62,6 +62,48 @@
           "value": "TEXT NOT NULL"
         }
       ]
+    },
+    {
+      "name": "listas",
+      "schema": [
+        {
+          "column": "id",
+          "value": "INTEGER PRIMARY KEY AUTOINCREMENT"
+        },
+        {
+          "column": "user_id",
+          "value": "INTEGER NOT NULL"
+        },
+        {
+          "column": "nombre",
+          "value": "TEXT NOT NULL"
+        }
+      ]
+    },
+    {
+      "name": "lista_libros",
+      "schema": [
+        {
+          "column": "id",
+          "value": "INTEGER PRIMARY KEY AUTOINCREMENT"
+        },
+        {
+          "column": "lista_id",
+          "value": "INTEGER NOT NULL"
+        },
+        {
+          "column": "title",
+          "value": "TEXT NOT NULL"
+        },
+        {
+          "column": "author",
+          "value": "TEXT"
+        },
+        {
+          "column": "coverImage",
+          "value": "TEXT"
+        }
+      ]
     }
   ]
 }
